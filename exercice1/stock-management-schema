@@ -1,0 +1,82 @@
+{
+    "products": {
+      "productId123456789": {
+        "barcode": "123456789",
+        "name": "Produit A",
+        "description": "Description du produit",
+        "expirationDate": "2025-12-31",
+        "stock": {
+          "store1": 50,
+          "store2": 30
+        },
+        "reservations": {
+          "reservationId1": {
+            "clientId": "client1",
+            "quantity": 5,
+            "status": "pending",
+            "reservedAt": "2025-01-30T10:00:00Z"
+          },
+          "reservationId2": {
+            "clientId": "client2",
+            "quantity": 2,
+            "status": "confirmed",
+            "reservedAt": "2025-01-31T14:00:00Z"
+          }
+        }
+      },
+      "productId987654321": {
+        "barcode": "987654321",
+        "name": "Produit B",
+        "description": "Autre produit",
+        "expirationDate": "2025-06-30",
+        "stock": {
+          "store1": 10,
+          "store3": 20
+        },
+        "reservations": {}
+      }
+    },
+    "stores": {
+      "store1": {
+        "name": "Magasin A",
+        "location": "Paris",
+        "inventory": {
+          "productId123456789": 50,
+          "productId987654321": 10
+        }
+      },
+      "store2": {
+        "name": "Magasin B",
+        "location": "Lyon",
+        "inventory": {
+          "productId123456789": 30
+        }
+      },
+      "store3": {
+        "name": "Magasin C",
+        "location": "Marseille",
+        "inventory": {
+          "productId987654321": 20
+        }
+      }
+    },
+    "reservations": {
+      "reservationId1": {
+        "clientId": "client1",
+        "productId": "productId123456789",
+        "quantity": 5,
+        "storeId": "store1",
+        "status": "pending",
+        "reservedAt": "2025-01-30T10:00:00Z"
+      },
+      "reservationId2": {
+        "clientId": "client2",
+        "productId": "productId123456789",
+        "quantity": 2,
+        "storeId": "store2",
+        "status": "confirmed",
+        "reservedAt": "2025-01-31T14:00:00Z"
+      }
+    }
+  }
+  
