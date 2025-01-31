@@ -1,169 +1,196 @@
 {
 	"info": {
-		"_postman_id": "0555aad5-93df-4688-8bc1-acdf50185375",
-		"name": "api",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28417041"
+	  "name": "Gestion de Stock API",
+	  "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "product",
-			"item": [
-				{
-					"name": "addProduct",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"barcode\": \"123456789012\",\r\n  \"name\": \"Produit Test\",\r\n  \"description\": \"Description du produit test.\",\r\n  \"expirationDate\": \"2025-12-31\"\r\n}\r\n",
-							"options": {
+	  {
+		"name": "Produits",
+		"item": [
+		  {
+			"name": "Créer un produit",
+			"request": {
+			  "method": "POST",
+			  "url": "http://localhost:3000/api/products",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"barcode\": \"123456789\", \"name\": \"Produit A\", \"description\": \"Description du produit\", \"expirationDate\": \"2025-12-31\"}"
+			,
+			"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/api/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"products"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAllProduct",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "getByIdProduct",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "putProduct",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "deleteProduct",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "store",
-			"item": [
-				{
-					"name": "addStore",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "getALLStores",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "getByIdStore",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "putStore",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "deleteStore",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "addProductToStore",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Reservation",
-			"item": [
-				{
-					"name": "addReservation",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "getByClientReservation",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "updateReservation",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "deleteReservation",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				}
-			]
-		}
+			}
+			}
+		  },
+		  {
+			"name": "Obtenir un produit",
+			"request": {
+			  "method": "GET",
+			  "url": "http://localhost:3000/api/products/123456789"
+			}
+		  },
+		  {
+			"name": "Obtenir tous les produits",
+			"request": {
+			  "method": "GET",
+			  "url": "http://localhost:3000/api/products"
+			}
+		  },
+		  {
+			"name": "Mettre à jour un produit",
+			"request": {
+			  "method": "PUT",
+			  "url": "http://localhost:3000/api/products/123456789",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"name\": \"Produit Modifié\", \"description\": \"Nouvelle description\"}"
+				,"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+			  }
+			}
+		  },
+		  {
+			"name": "Supprimer un produit",
+			"request": {
+			  "method": "DELETE",
+			  "url": "http://localhost:3000/api/products/123456789"
+			}
+		  }
+		]
+	  },
+	  {
+		"name": "Réservations",
+		"item": [
+		  {
+			"name": "Créer une réservation",
+			"request": {
+			  "method": "POST",
+			  "url": "http://localhost:3000/api/reservation/create",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"barcode\": \"123456789\", \"quantity\": 2, \"clientId\": \"client1\", \"storeId\": \"store1\"}"
+			 ,
+			 "options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+			}
+			}
+		  },
+		  {
+			"name": "Obtenir les réservations par client",
+			"request": {
+			  "method": "GET",
+			  "url": "http://localhost:3000/api/reservation/client/client1"
+			}
+		  },
+		  {
+			"name": "Mettre à jour une réservation",
+			"request": {
+			  "method": "PUT",
+			  "url": "http://localhost:3000/api/reservation/update/1",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"status\": \"confirmée\"}"
+				,
+				"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+			  }
+			}
+		  },
+		  {
+			"name": "Supprimer une réservation",
+			"request": {
+			  "method": "DELETE",
+			  "url": "http://localhost:3000/api/reservation/delete/1"
+			}
+		  }
+		]
+	  },
+	  {
+		"name": "Magasins",
+		"item": [
+		  {
+			"name": "Créer un magasin",
+			"request": {
+			  "method": "POST",
+			  "url": "http://localhost:3000/api/stores",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"storeId\": \"store1\", \"name\": \"Magasin A\", \"location\": \"Paris\"}"
+				,"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+			  }
+			}
+		  },
+		  {
+			"name": "Obtenir un magasin",
+			"request": {
+			  "method": "GET",
+			  "url": "http://localhost:3000/api/stores/store1"
+			}
+		  },
+		  {
+			"name": "Obtenir tous les magasins",
+			"request": {
+			  "method": "GET",
+			  "url": "http://localhost:3000/api/stores"
+			}
+		  },
+		  {
+			"name": "Mettre à jour un magasin",
+			"request": {
+			  "method": "PUT",
+			  "url": "http://localhost:3000/api/stores/store1",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"name\": \"Magasin B\", \"location\": \"Lyon\"}"
+				,
+				"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+			  }
+			}
+		  },
+		  {
+			"name": "Supprimer un magasin",
+			"request": {
+			  "method": "DELETE",
+			  "url": "http://localhost:3000/api/stores/store1"
+			}
+		  },
+		  {
+			"name": "Ajouter un produit à un magasin",
+			"request": {
+			  "method": "POST",
+			  "url": "http://localhost:3000/api/stores/store1/products",
+			  "body": {
+				"mode": "raw",
+				"raw": "{\"barcode\": \"123456789\", \"quantity\": 10}",
+				"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+			  }
+			}
+		  }
+		]
+	  }
 	]
-}
+  }
+  
